@@ -1,14 +1,18 @@
 import React from "react";
-import Router from "./routers/Route";
 import Navbar from "./components/Navbar";
+import Home from "./home/Home";
+// import { BrowserRouter } from "react-router-dom";
+import Router from "./routers/Route";
 
 
 const App = () => {
   return (
-    <div>
-      <Navbar/>
-      <Router />
-    </div>
+    <>
+      {/* <Home /> */}
+      <Navbar />
+      {/* <Router /> */}
+    </>
+
   );
 };
 
