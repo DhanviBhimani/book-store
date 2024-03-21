@@ -36,7 +36,7 @@ const Navbar = () => {
   const NavItems = [
     { link: "Home", path: "/" },
     { link: "About", path: "/about" },
-    { link: "Shop", path: "/Shop" },
+    { link: "Shop", path: "/shop" },
     { link: "sell Your Book", path: "/admin/dashboard" },
     { link: "Blog", path: "/blog" },
   ]
@@ -54,7 +54,7 @@ const Navbar = () => {
           <ul className='md:flex space-x-12 hidden'>
             {
               NavItems.map(({ link, path }) =>
-                <Link key={path} to={path} className='block text-base text-black uppercase curser-pointer hover:text-blue-700'>{link}</Link>)
+                <a key={path} href={path} className='block text-base text-black uppercase curser-pointer hover:text-blue-700' >{link}</a>)
             }
           </ul>
 
@@ -76,7 +76,7 @@ const Navbar = () => {
         <div className={`space-y-4 px-4 mt-16 py-7 bg-blue-700 ${isMenuOpen ? "block fixed top-0 right-0 left-0" : "hidden"}`}>
           {
             NavItems.map(({ link, path }) =>
-              <Link key={path} to={path} className='block text-base text-white uppercase curser-pointer'>{link}</Link>)
+              <a key={path} href={path} className='block text-base text-white uppercase curser-pointer'>{link}</a>)
           }
         </div>
       </nav>

@@ -1,12 +1,22 @@
 import React from 'react'
 import Banner from '../components/Banner'
-import FavoriteBook from './FavoriteBook'
+import BestSellerBook from './BestSellerBook'
+import FavBook from '../components/FavBook'
+import PromoBanner from './PromoBanner'
+import OtherBooks from './OtherBooks'
+import Review from './Review'
+import Navbar from '../components/Navbar'
 
 const Home = () => {
   return (
     <div>
-     <Banner />
-     <FavoriteBook />
+      <Navbar />
+      <Banner />
+      <BestSellerBook />
+      <FavBook />
+      <PromoBanner />
+      <OtherBooks />
+      <Review/>
     </div>
     
   )

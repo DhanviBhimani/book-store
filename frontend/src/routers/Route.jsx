@@ -5,18 +5,19 @@ import Shop from "../shop/Shop";
 import About from "../components/About";
 import Blog from "../components/Blog";
 import SingleBook from "../shop/SingleBook";
+import Navbar from "../components/Navbar";
 
-const Router = () => (
-  <BrowserRouter>
-    <Routes>
-        <Route path="/" element={<div>Hello world!</div>} /> 
+
+const CustomRouter = () => (
+    <BrowserRouter>
+      <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/Shop" element={<Shop />} />
-        <Route path="/About" element={<About />} />
-        <Route path="/Blog" element={<Blog />} />
-        <Route path="/book/:id" element={<SingleBook/>} loader= {(params)=>fetch(`http://localhost:5000/book/${params.id}`)} />
-    </Routes>
-  </BrowserRouter>
-);
+        <Route path="/shop" element={<Shop />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/blog" element={<Blog />} />
+        <Route path="/book/:id" element={<SingleBook />} loader={(params) => fetch(`http://localhost:5000/book/${params.id}`)} />
+      </Routes>
+    </BrowserRouter>
+  );
 
-export default Router;
+export default CustomRouter;

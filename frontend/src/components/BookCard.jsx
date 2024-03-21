@@ -22,7 +22,7 @@ const BookCard = ({ headline, books }) => {
       <h2 className='text-5xl text-center font-bold text-black my-5'>{headline}</h2>
 
       {/* cards */}
-      <div className='card'>
+      <div className='card mt-14'>
         <Swiper
           slidesPerView={1}
           spaceBetween={10}
@@ -56,11 +56,11 @@ const BookCard = ({ headline, books }) => {
                   </div>
                 </div>
                 <div>
-                  <div className='text-black'>
-                  <h3>{book.title}</h3>
-                  <p>{book.authorName}</p>
+                  <div className='text-black font-light text-left'>
+                  <h3 >{book.title}</h3>
+                  <p >{book.authorName}</p>
                   <div>
-                    <p>$10.00</p>
+                    <p >$10.00</p>
                   </div>
                   </div>
                 </div>
