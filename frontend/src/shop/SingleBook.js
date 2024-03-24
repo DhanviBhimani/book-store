@@ -33,7 +33,7 @@ const SingleBook = () => {
     return <div>Loading...</div>;
   }
 
-  const { _id, title, imageUrl } = bookData;
+  const { title, imageUrl } = bookData;
 
   return (
     <div className='mt-28 px-4 lg:px-24'>

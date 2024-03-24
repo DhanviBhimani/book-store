@@ -12,11 +12,11 @@ const Shop = () => {
     <div className='mt-28 px-4 lg:px-24'> 
       <h2 className='text-5xl font-bold text-center'>All Books are here</h2>
 
-      <div className='grid gap-8 my-12 lg:grid-cols-4 sm:grid-cols-3 md:grid-cols-2 grid-cols-1'>
+      <div className='grid gap-8 my-12 lg:grid-cols-4 sm:grid-cols-2 md:grid-cols-3 grid-cols-1'>
               {
                 books.map(book => 
                   <Card>
-                    <img src={book.imageUrl} alt=""  className='h-96'/>
+                    <img src={book.imageUrl} alt=""  className='object-cover h-full w-full'/>
                       <h5 className='text-2xl font-bold tracking-tight text-gray-900 dark:text-white'>
                         <p>
                           {book.title}
