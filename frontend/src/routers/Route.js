@@ -13,6 +13,10 @@ import UploadBooks from "../dashboard/UploadBooks";
 import ManageBooks from "../dashboard/ManageBooks";
 import EditBooks from "../dashboard/EditBooks";
 import Signup from "../components/Signup";
+import Login from "../components/Login";
+import PrivateRouter from "../PrivateRouter/PrivateRouter";
+import Logout from "../components/Logout";
+import DashboardUser from "../dashboard/DashboardUser";
 
 
 const CustomRouter = createBrowserRouter([
@@ -62,7 +66,7 @@ const CustomRouter = createBrowserRouter([
     children: [
       {
         path: "/admin/dashboard",
-        element: <Dashboard />,
+        element: <PrivateRouter><Dashboard /></PrivateRouter>,
       },
       {
         path: "/admin/dashboard/upload",
@@ -71,6 +75,14 @@ const CustomRouter = createBrowserRouter([
       {
         path: "/admin/dashboard/manage",
         element: < ManageBooks/>,
+      },
+      {
+        path: "/admin/dashboard/user",
+        element: <DashboardUser />,
+      },
+      {
+        path: "/admin/dashboard/products",
+        element: <Shop />,
       },
       {
         path: "/admin/dashboard/edit-books/:id",
@@ -82,6 +94,14 @@ const CustomRouter = createBrowserRouter([
   {
     path: "/sign-up",
     element: <Signup />,
+  },
+  {
+    path: "/login",
+    element: <Login />,
+  },
+  {
+    path:"/logout",
+    element: <Logout/>,
   }
 ]);
 
