@@ -6,7 +6,7 @@ import Shop from "../shop/Shop";
 import About from "../components/About";
 import Blog from "../components/Blog";
 import SingleBook from "../shop/SingleBook";
-import Dashboard from "../dashboard/Dashboard";
+// import Dashboard from "../dashboard/Dashboard";
 import App from "../App";
 import Dashboardlayout from "../dashboard/Dashboardlayout";
 import UploadBooks from "../dashboard/UploadBooks";
@@ -17,6 +17,7 @@ import Login from "../components/Login";
 import PrivateRouter from "../PrivateRouter/PrivateRouter";
 import Logout from "../components/Logout";
 import DashboardUser from "../dashboard/DashboardUser";
+import Checkout from "../components/Checkout";
 
 
 const CustomRouter = createBrowserRouter([
@@ -39,6 +40,10 @@ const CustomRouter = createBrowserRouter([
       {
         path: "blog",
         element: <Blog />,
+      },
+      {
+        path: "checkout",
+        element: <Checkout/>
       },
       {
         path: "book/:id",
@@ -66,7 +71,7 @@ const CustomRouter = createBrowserRouter([
     children: [
       {
         path: "/admin/dashboard",
-        element: <PrivateRouter><Dashboard /></PrivateRouter>,
+        element: <PrivateRouter><DashboardUser /></PrivateRouter>,
       },
       {
         path: "/admin/dashboard/upload",

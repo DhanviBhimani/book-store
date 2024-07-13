@@ -6,7 +6,7 @@ const BestSellerBook = () => {
     const [books, setBooks] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/all-books').then(res => res.json()).then(data => setBooks(data.slice(0, 8)))
+        fetch('http://localhost:5000/all-books').then(res => res.json()).then(data => setBooks(data.slice(0, 12)))
     }, []);
   return (
     <div>

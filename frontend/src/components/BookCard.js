@@ -1,24 +1,30 @@
 import React from 'react';
-// Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Link } from 'react-router-dom';
-
-// Import Swiper styles
-// import './.css';
-import './BookCard.css';
+import { FaCartShopping } from "react-icons/fa6";
+import { Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
-import { FaCartShopping } from "react-icons/fa6";
+import './BookCard.css';
 
-// import required modules
-import { Pagination } from 'swiper/modules';
+
+
 
 const BookCard = ({ headline, books }) => {
 
-  console.log(books);
-
-  const handleCart = () => {
-        
+  const handleCart = (bookId) => {
+    // Find the book based on its ID
+    const bookToAddToCart = books.find(book => book._id === bookId);
+    if (bookToAddToCart) {
+      // Get existing cart items from local storage or initialize as an empty array
+      const existingCartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+      // Add the new book to the cart
+      existingCartItems.push(bookToAddToCart);
+      // Save updated cart items back to local storage
+      localStorage.setItem('cartItems', JSON.stringify(existingCartItems));
+      // Optionally, you can provide feedback to the user that the item has been added to the cart
+      alert('Book added to cart!');
+    }
   }
 
   return (
@@ -26,7 +32,7 @@ const BookCard = ({ headline, books }) => {
       <h2 className='text-5xl text-center font-bold text-black my-5'>{headline}</h2>
 
       {/* cards */}
-      <div className='card mt-14'>
+      <div className='card mt-12 '>
         <Swiper
           slidesPerView={1}
           spaceBetween={10}
@@ -53,10 +59,10 @@ const BookCard = ({ headline, books }) => {
           {books.map(book =>
             <SwiperSlide key={book._id}>
               <Link to={`/book/${book._id}`}>
-                <div className='relative'>
+                <div className='relative bg-gray-100 py-4 px-4 rounded'>
                   <img src={book.imageUrl} alt="" />
                   <div className='absolute top-3 right-3 bg-blue-600 hover:bg-black p-2 rounded'>
-                    <FaCartShopping onClick={handleCart} className='w-4 h-4 text-white'/>
+                    <FaCartShopping onClick={() => handleCart(book._id)} className='w-4 h-4 text-white'/>
                   </div>
                 </div>
                 <div>
@@ -73,7 +79,7 @@ const BookCard = ({ headline, books }) => {
           )}
         </Swiper>
       </div>
-    </div>
+      </div>
   );
 };
 
